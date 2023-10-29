@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react"
-import Square from "./Square"
+import Row from "./Row"
 export default function Box() {
     const [values, setValues] = useState(new Array(9).fill(null))
     const [nextIsX, setNextIsX] = useState(true)
@@ -26,21 +26,9 @@ export default function Box() {
     return (
         <div className="Box">
             <div className="status">{status}</div>
-            <div className="row">
-                <Square value={values[0]} onclick={() => handleClick(0)}></Square>
-                <Square value={values[1]} onclick={() => handleClick(1)}></Square>
-                <Square value={values[2]} onclick={() => handleClick(2)}></Square>
-            </div>
-            <div className="row">
-                <Square value={values[3]} onclick={() => handleClick(3)}></Square>
-                <Square value={values[4]} onclick={() => handleClick(4)}></Square>
-                <Square value={values[5]} onclick={() => handleClick(5)}></Square>
-            </div>
-            <div className="row">
-                <Square value={values[6]} onclick={() => handleClick(6)}></Square>
-                <Square value={values[7]} onclick={() => handleClick(7)}></Square>
-                <Square value={values[8]} onclick={() => handleClick(8)}></Square>
-            </div>
+            <Row num={0} fun={handleClick} value={values}></Row>
+            <Row num={1} fun={handleClick} value={values}></Row>
+            <Row num={2} fun={handleClick} value={values}></Row>
         </div >
     )
 }

@@ -9,7 +9,7 @@
   float: left;
 }
 
-.row:after {
+.Row:after {
   clear: both;
   content: '';
   display: table;
