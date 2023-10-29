@@ -1,9 +1,9 @@
 
 import './App.css'
-import Box from './Box'
+import Game from './Game'
 function App() {
   return (
-    <Box />
+    <Game />
   )
 }
 

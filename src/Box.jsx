@@ -1,27 +1,27 @@
 import { useCallback, useState } from "react"
 import Row from "./Row"
-export default function Box() {
-    const [values, setValues] = useState(new Array(9).fill(null))
-    const [nextIsX, setNextIsX] = useState(true)
+export default function Box({ values, nextIsX, onPlay }) {
     const winner = check(values)
+    let draw = 0;
+    const n = values.filter((v) => v == null)
+    if (n.length === 0)
+        draw = 1;
     let status;
     if (winner)
         status = `WINNER is ${!nextIsX ? "X" : "O"}`
+    else if (draw)
+        status = `Drawwwww`
     else
         status = "Next player: " + (nextIsX ? "X" : "O");
     const handleClick = (i) => {
         if (values[i] || check(values))
             return;
-        setValues((oldvalues) => oldvalues.map((m, indx) => {
-            if (indx == i) {
-                if (nextIsX)
-                    return "X"
-                else
-                    return "O"
-            }
-            return oldvalues[indx]
-        }))
-        setNextIsX(!nextIsX)
+        let nextValues = [...values]
+        if (nextIsX)
+            nextValues[i] = "X"
+        else
+            nextValues[i] = "O"
+        onPlay(nextValues)
     }
     return (
         <div className="Box">
