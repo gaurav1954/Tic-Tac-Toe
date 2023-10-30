@@ -10,7 +10,7 @@ export default function Box({ values, nextIsX, onPlay }) {
     if (winner)
         status = `WINNER is ${!nextIsX ? "X" : "O"}`
     else if (draw)
-        status = `Drawwwww`
+        status = `Game Drawwwww`
     else
         status = "Next player: " + (nextIsX ? "X" : "O");
     const handleClick = (i) => {

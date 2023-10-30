@@ -35,19 +35,27 @@ export default function Game() {
         setHistory([new Array(9).fill(null)])
         setCurrent(0)
     }
-    return (<>
-        <div className="game-board">
-            <Box values={v} nextIsX={nextIsX} onPlay={handlePlay} />
+    return (<div className="Game">
+        <div className="heading">
+            <span className="first">Tic</span>
+            <span className="middle">-Tac</span>
+            <span className="last">-Toe</span>
         </div>
-        <div className="game-info">
-            <ol>
-                {moves}
-            </ol>
+        <div className="AGame">
+            <div className="game-board">
+                <Box values={v} nextIsX={nextIsX} onPlay={handlePlay} />
+            </div>
+            <div className="game-info">
+                <ol>
+                    {moves}
+                </ol>
+                <div className="reset">
+                    <button className="rst" onClick={rst}>Reset</button>
+                </div>
+            </div>
         </div>
-        <div className="reset">
-            <button className="rst" onClick={rst}>Reset</button>
-        </div>
-    </>
+
+    </div>
     );
 
 }
