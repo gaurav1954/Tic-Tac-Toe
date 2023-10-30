@@ -26,7 +26,7 @@ export default function Game() {
         }
         return (
             <li key={move}>
-                <button onClick={() => jumpTo(move)}>{description}</button>
+                <button className="Moves" onClick={() => jumpTo(move)}>{description}</button>
             </li>
         );
     });
@@ -46,9 +46,9 @@ export default function Game() {
                 <Box values={v} nextIsX={nextIsX} onPlay={handlePlay} />
             </div>
             <div className="game-info">
-                <ol>
+                <ul>
                     {moves}
-                </ol>
+                </ul>
                 <div className="reset">
                     <button className="rst" onClick={rst}>Reset</button>
                 </div>
